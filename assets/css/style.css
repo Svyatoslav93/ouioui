@@ -12,7 +12,8 @@ body {
     grid-template-rows: 0.8fr 6fr;
     grid-template-columns: 1fr 6fr 1fr;
     grid-template-areas: ". header  ."
-                         ". main .";
+                         ". main ."
+                         ". footer .";
     background-color: #111111;
     margin: 0;
     
@@ -43,7 +44,6 @@ nav {
     top: 0;
     left: 0;
     background: #111111;
-    opacity: 95%;
     width: 80%;
     height: 100vh;
   }
@@ -96,6 +96,7 @@ header {
     grid-area: header;
     grid-template-columns: 1fr 1fr;
     display: grid;
+    height: 8rem;
 }
 li {
     list-style: none;
@@ -107,11 +108,11 @@ li {
     font-style: normal;
     line-height: 3;
     letter-spacing: normal;
-    color: #d8d8d8;
+    color: #ffffff;
 }
 a {
     text-decoration: none;
-    color: #d8d8d8;
+    color: #ffffff;
     margin: 0;
     padding: 0;
 }
@@ -143,7 +144,7 @@ img {
     margin-top: 2rem;
 }
 .open {
-    display: block !important;
+    display: block !important; 
 }
 .backdrop {
     position: fixed;
@@ -181,6 +182,7 @@ img {
   footer {
       background-color: #111111;
       display: grid;
+      grid-area: footer;
       grid-template-columns: 1fr 3fr 3fr 1fr;
       grid-template-areas: ". about contacts .";
       justify-items: left;
@@ -198,6 +200,10 @@ img {
       margin-top: 5rem;
       margin-left: 2rem;
   }
+   form {
+        height: 20%;
+        min-width: 40%;
+    }
   .email {
       font-size: 1.2rem;
       margin-left: 0;
@@ -211,8 +217,7 @@ img {
       color: #ffffff;
   }
   button {
-    width: 350px;
-    height: 69px;
+    width: 100%;
     background-color: #fee50e;
     font-size: 2rem;
     font-weight: bold;
@@ -220,6 +225,7 @@ img {
     margin-top: 2rem;
     border-width: 0;
     cursor: pointer;
+    padding: 0.5rem;
   }
 
   @media (max-width: 1000px) {
@@ -235,10 +241,12 @@ img {
       }
       .main-wrapper {
           grid-template-columns: 1fr;
-          grid-template-rows: repeat(auto-fill, 1fr);
+          grid-template-rows: 1fr;
           grid-template-areas: 
           "header"
-          "main";
+          "main"
+          "footer";
+
       }
       header {
           padding: 5%;
@@ -246,7 +254,27 @@ img {
       .more-works {
           display: none;
       }
-  };
+      footer {
+          grid-template-columns: 1fr;
+          grid-template-rows: 1fr;
+          grid-template-areas: 
+          "about"
+          "contacts";                        
+      }
+      .about {
+          margin-top: 10rem;
+          margin-bottom: 2rem;
+          padding-right: 2rem;
+      }
+      .contacts {
+          margin-bottom: 5rem;
+      }
+  }
+    @media (min-width: 1000px) and (max-width: 1300px) {
+        h1 {
+            font-size: 1.2rem;
+        }
+    }
 
 
 
