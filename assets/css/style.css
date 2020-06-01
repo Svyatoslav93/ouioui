@@ -1,12 +1,17 @@
 * {
     box-sizing: border-box;
 }
+
+
+/* General grid template with areas */
+
 body {
     margin: 0;
     font-family: 'montserrat', sans-serif;
     font-size: 16px;
     background-color: #111111;
 }
+
 .main-wrapper {
     display: grid;
     grid-template-rows: 0.8fr 6fr;
@@ -15,9 +20,15 @@ body {
                          ". main ."
                          ". footer .";
     background-color: #111111;
-    margin: 0;
-    
+    margin: 0;   
 }
+
+/* End of General grid template with areas */
+
+
+
+/* Making menu (header with grid and mobile menu with flex) */
+
 .logo {
     color: #fee50e;
     font-size: 2rem;
@@ -26,9 +37,19 @@ body {
     max-width: 190px;
     align-self: center;
 }
+
 nav {
     display: grid;
 }
+
+header {
+    grid-area: header;
+    grid-template-columns: 1fr 1fr;
+    display: grid;
+    height: 5rem;
+    padding-top: 5%;
+}
+
 .main-menu {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -37,16 +58,19 @@ nav {
     margin: 0;
     padding: 0;
 }
+
 .mobile-nav {
-    display: none;
+    height: 0;
+    opacity: 0;
+    transform: translateY(-3rem);
     position: fixed;
-    z-index: 100;
+    z-index: -1;
     top: 0;
     left: 0;
     background: #111111;
     width: 80%;
-    height: 100vh;
   }
+
   .mobile-nav__items {
     width: 90%;
     height: 100%;
@@ -58,6 +82,7 @@ nav {
     justify-content: center;
     align-items: center;
   }
+
 .toggle-button {
     width: 3rem;
     background: transparent;
@@ -69,6 +94,7 @@ nav {
     grid-column-start: 3;
     display: none;
   }
+
   .toggle-button:hover {
       color: #fee50e;
   }
@@ -84,6 +110,16 @@ nav {
     display: block;
     margin: 0.6rem 0;
   }
+
+
+  /* End of menu syles */
+
+
+
+
+
+/* Main block with projects with grid  */
+
 main {
     grid-area: main;
     max-width: 1400px;
@@ -92,12 +128,26 @@ main {
     grid-auto-rows: min-content;
 
 }
-header {
-    grid-area: header;
-    grid-template-columns: 1fr 1fr;
-    display: grid;
-    height: 8rem;
+
+img {
+    width: 100%;
+    margin: 0;
 }
+
+.projects {
+    max-width: 100%;
+    height: 100%;
+    margin: 0;
+    margin-top: 2rem;
+}
+
+/* End of Main block with projects  */
+
+
+
+
+/* Links, lists and topography */
+
 li {
     list-style: none;
     margin-right: 0.5rem;
@@ -110,12 +160,14 @@ li {
     letter-spacing: normal;
     color: #ffffff;
 }
+
 a {
     text-decoration: none;
     color: #ffffff;
     margin: 0;
     padding: 0;
 }
+
 a:hover {
     color: #fee50e;
     cursor: pointer;
@@ -133,18 +185,24 @@ span {
     margin-bottom: 0.5rem;
     margin-left: 2rem;
 }
-img {
-    width: 100%;
-    margin: 0;
+p {
+    max-width: 35rem;
+    color: #ffffff;
 }
-.projects {
-    max-width: 100%;
-    height: 100%;
-    margin: 0;
-    margin-top: 2rem;
-}
+
+/* End of Links, lists and topography */
+
+
+
+
+/* clases for js and other defult adjustments for mobile blocks  */
 .open {
-    display: block !important; 
+    display: block !important;
+    height: 80vh;
+    transition: height 0.4s linear; 
+    transform: translateY(0rem);
+    opacity: 1;
+    z-index: 0;
 }
 .backdrop {
     position: fixed;
@@ -172,8 +230,13 @@ img {
       line-height: 3;
       letter-spacing: normal;
       color: #fee50e;
+    }
 
-  }
+
+
+
+  /* Footer blocks and fontawesome icons  */
+
   .fab, .fas {
       font-size: 2rem;
       color: white;
@@ -212,10 +275,7 @@ img {
   .social {
       margin-top: 2rem;
   }
-  p {
-      max-width: 35rem;
-      color: #ffffff;
-  }
+
   button {
     width: 100%;
     background-color: #fee50e;
@@ -228,16 +288,28 @@ img {
     padding: 0.5rem;
   }
 
+
+
+
+
+   /* Mobile responsive  */
+
+
   @media (max-width: 1000px) {
       .toggle-button {
           display: block;
+          align-self: center;
+          margin: 0;
+      }
+      .logo {
+          font-size: 1.8rem;
+          align-self: center;
       }
       .main-menu {
           display: none;
       }
       main {
           grid-template-columns: 1fr;
-          padding-top: 1%;
       }
       .main-wrapper {
           grid-template-columns: 1fr;
@@ -248,12 +320,15 @@ img {
           "footer";
 
       }
+
       header {
-          padding: 5%;
+          padding: 5% 5% 5% 5%;
       }
+
       .more-works {
           display: none;
       }
+
       footer {
           grid-template-columns: 1fr;
           grid-template-rows: 1fr;
@@ -261,6 +336,7 @@ img {
           "about"
           "contacts";                        
       }
+
       .about {
           margin-top: 10rem;
           margin-bottom: 2rem;
