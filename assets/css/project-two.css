@@ -5,3 +5,9 @@ header {
 img {
     display: block;
 }
+
+@media (min-width: 1000px) and (max-width: 1300px) {
+    h1 {
+        font-size: 1.2rem;
+    }
+}

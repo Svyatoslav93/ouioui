@@ -1,0 +1,24 @@
+header {
+    background-color: #131313;
+}
+img {
+    display: block;
+}
+.case-blocks {
+    width: 100%;
+}
+#animated {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+@media (max-width: 1000px) {
+    #animated {
+        grid-template-columns: 1fr;
+    }
+}
+@media (min-width: 1000px) and (max-width: 1300px) {
+    h1 {
+        font-size: 1.2rem;
+    }
+}
