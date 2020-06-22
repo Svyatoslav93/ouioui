@@ -45,7 +45,7 @@ form {
     grid-area: contacts;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1000px) {
     footer {
         grid-template-columns: 1fr;
         grid-template-rows: 1fr 0.2fr;
@@ -60,6 +60,10 @@ form {
         margin-left: 0;
         margin-bottom: 0;
     }
+    header {
+        padding: 5% 5% 5% 5%;
+    }
+
 }
 
 @media (min-width: 1000px) and (max-width: 1300px) {

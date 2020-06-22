@@ -1,24 +1,43 @@
-var menuButton = document.querySelector('.toggle-button');
-var mobileNav = document.querySelector('.mobile-nav');
-var backdrop = document.querySelector('.backdrop');
+let menuButton = document.querySelector('.toggle-button');
+let mobileNav = document.querySelector('.mobile-nav');
+let backdrop = document.querySelector('.backdrop');
+let menuOpen = false;
 
 menuButton.addEventListener('click', function openMenu() {
+
+  if (!menuOpen) {
+    menuButton.classList.add("toggle-open");
+    menuOpen = true;
     mobileNav.style.display = 'block';
     backdrop.classList.add("open");
     setTimeout (function () {
         mobileNav.classList.add("open"); 
     }, 10);
+} else {
+    menuButton.classList.remove("toggle-open");
+    menuOpen = false;
+    mobileNav.style.display = 'none';
+    backdrop.classList.remove("open");
+    setTimeout (function () {
+        mobileNav.classList.remove("open"); 
+    }, 10);
+}
 })
 
 backdrop.addEventListener('click', function closeMenu() {
     mobileNav.style.display = 'none';
+    menuButton.classList.remove("toggle-open")
     backdrop.classList.remove("open");
     setTimeout (function () {
         mobileNav.classList.remove("open"); 
     }, 10);
 })
 
-//Get the button "go to top":
+
+
+
+//Button Scroll on top
+
 mybutton = document.getElementById("myBtn");
 
 // When the user scrolls down 20px from the top of the document, show the button
